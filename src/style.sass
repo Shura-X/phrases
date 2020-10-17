@@ -71,6 +71,9 @@ li
 
 		&:hover
 			background-color: rgba(138, 43, 226, .075)
+			.left button
+				display: block
+
 		&::before
 			content: ''
 			display: block
@@ -83,9 +86,44 @@ li
 			left: calc(0px - 5px - 1rem)
 			top: calc(50% - 5px)
 
-		.cont 
-			display: flex
-			align-items: center
+	.right 
+		display: flex
+		align-items: center
+
+	.left
+		display: flex
+		align-items: center
+
+		input
+			@include font(18, $black)
+			padding: 5px
+			border: 1px solid $black
+			border-radius: 10px	
+			margin: 0 1em
+			width: 300px
+			&:focus
+				outline: 0px
+				border-color: blueviolet
+
+		button
+			cursor: pointer
+			display: none
+			color: $black
+			opacity: .35
+			border: 0
+			height: 30px
+			width: 30px
+			padding: 5px
+			border-radius: 5px
+			background-color: transparent
+			&:not(:last-of-type)
+				margin-right: .5rem
+			&:active, &:focus 
+				outline: 0px
+
+		svg
+			height: 100%
+			width: 100%
 
 	#plus
 		padding: 5px
