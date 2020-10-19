@@ -12,7 +12,7 @@
                 <li v-for="phrase in phrases" :id="phrase.id">
                     <div class="left">
                         <p v-if="phrase.state === 'static'">{{ phrase.text }}</p>
-                        <input v-else type="text" v-model="phrase.text">
+                        <input v-else type="text" v-model="phrase.text" @keydown.enter="on_edit(phrase)">
                         <button id="" class="delete" @click="on_delete">
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -110,7 +110,13 @@ export default {
         },
 
         on_edit(phrase) {
-            if (phrase.state==='static') {
+            if ( phrase.state === 'static' ) {
+            
+                if ( this.phrases.find(item => item.state === 'editing') ) {
+                    alert("You must complete editing another phrase");
+                    return;
+                };
+
                 phrase.state = 'editing'
             } else {
                 
@@ -119,7 +125,8 @@ export default {
                 }
 
                 phrase.state = 'static'
-            }
+            };
+
         },
 
         on_increase(phrase) {
