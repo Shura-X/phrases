@@ -23,10 +23,12 @@ $black: #282828
 main 
 	margin: 0 2rem
 
-	width: 1000px
-	height: 500px
+	width: clamp(0px, 95vw, 1000px)
+	/*height: 500px*/
 
-	@include font(18, $black)
+	/*@include font(18, $black)*/
+
+	
 
 	box-sizing: border-box
 
@@ -99,8 +101,8 @@ li
 			padding: 5px
 			border: 1px solid $black
 			border-radius: 10px	
-			margin: 0 1em
-			width: 300px
+			margin: 0px
+			width: clamp(200px, 22vw, 300px)
 			&:focus
 				outline: 0px
 				border-color: blueviolet
@@ -154,3 +156,7 @@ li
 		border: transparent
 		color: white
 		background-color: blueviolet
+
+#description
+	margin: 1rem 2rem
+	@include font(18, $black)
