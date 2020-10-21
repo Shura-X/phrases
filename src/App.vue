@@ -110,7 +110,7 @@ export default {
         return {
             input: '',
             phrases: [],
-            lang: 'eng',
+            lang: 'rus',
         }
     },
 

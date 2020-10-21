@@ -3,7 +3,7 @@ $font_size: 14
 
 @mixin font($size, $color)
 	font-family: 'Arial'
-	font-size: $size + px
+	font-size: 1rem
 	color: $color
 
 %btn
@@ -21,13 +21,19 @@ $font_size: 14
 		border-color: transparent
 		color: white
 
+
+html
+	font-size: 18px
+
 main 
 	margin: 0 2rem
 
 	width: clamp(0px, 95vw, 1000px)
 	/*height: 500px*/
 
-	@include font($font_size, $black)
+	font-family: 'Arial'
+	color: $black
+	font-size: 1rem
 
 	display: flex
 	flex-direction: column
@@ -69,12 +75,17 @@ li
 		margin: 0
 		margin-right: 1rem
 
+		max-width: 45vw
+		word-wrap: break-word
+
 	ul
 		margin: 0
 
 	li
 		padding: .5rem 0
 		position: relative
+
+		max-width: 100%
 
 		display: flex
 		justify-content: space-between
@@ -172,9 +183,20 @@ li
 
 
 @media screen and (max-width: 480px)
-	$font_size: 14
+	html
+		font-size: 14px
+
+	#description
+		margin: 1rem
 
 	.list
+		p
+			max-width: 34vw
+
 		.left
 			input 
 				width: 100px
+
+	.add
+		input
+			min-width: 100px
