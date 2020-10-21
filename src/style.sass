@@ -1,4 +1,5 @@
-$black: #282828
+$black: #3c3c3c
+$font_size: 14
 
 @mixin font($size, $color)
 	font-family: 'Arial'
@@ -11,7 +12,7 @@ $black: #282828
 	outline: 0px
 	background-color: transparent
 	border: 1px solid $black
-	@include font(18, $black)
+	@include font($font_size, $black)
 	cursor: pointer
 	&:hover
 		border-color: blueviolet
@@ -26,9 +27,11 @@ main
 	width: clamp(0px, 95vw, 1000px)
 	/*height: 500px*/
 
-	/*@include font(18, $black)*/
+	@include font($font_size, $black)
 
-	
+	display: flex
+	flex-direction: column
+	align-items: center
 
 	box-sizing: border-box
 
@@ -39,6 +42,8 @@ li
 .add
 	margin-bottom: 1rem
 
+	align-self: stretch
+
 	display: grid
 	grid-template-columns: 0fr 1fr 0fr
 
@@ -46,7 +51,7 @@ li
 		@extend %btn
 
 	input
-		@include font(18, $black)
+		@include font($font_size, $black)
 		padding: 5px
 		border: 1px solid $black
 		border-radius: 10px	
@@ -57,12 +62,15 @@ li
 			border-color: blueviolet
 
 .list
-	@include font(18, $black)
-	margin-top: 1rem
+	@include font($font_size, $black)
+	align-self: stretch
 
 	p
 		margin: 0
 		margin-right: 1rem
+
+	ul
+		margin: 0
 
 	li
 		padding: .5rem 0
@@ -97,11 +105,12 @@ li
 		align-items: center
 
 		input
-			@include font(18, $black)
+			@include font($font_size, $black)
 			padding: 5px
 			border: 1px solid $black
 			border-radius: 10px	
 			margin: 0px
+			margin-right: 1rem
 			width: clamp(200px, 22vw, 300px)
 			&:focus
 				outline: 0px
@@ -160,3 +169,12 @@ li
 #description
 	margin: 1rem 2rem
 	@include font(18, $black)
+
+
+@media screen and (max-width: 480px)
+	$font_size: 14
+
+	.list
+		.left
+			input 
+				width: 100px

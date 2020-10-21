@@ -162,7 +162,8 @@ export default {
             } else {
                 
                 if (phrase.text.trim() === '') {
-                    alert(this.vocab.empty)
+                    alert(this.vocab.empty);
+                    return
                 }
 
                 phrase.state = 'static'
