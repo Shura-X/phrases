@@ -14,11 +14,11 @@
 
             <li v-for="phrase in phrases" :id="phrase.id">
                 <div class="left">
-                    <p v-if="phrase.state === 'static'">{{ phrase.text }}</p>
+                    <p v-if="phrase.state === 'static'">{{ phrase.text }}, {{ phrase.id }}</p>
 
-                    <input v-else type="text" v-model="phrase.text" @keydown.enter="on_edit($event, phrase)">
+                    <input v-focus v-else type="text" v-model="phrase.text" @keydown.enter="on_edit($event, phrase)">
 
-                    <button id="" class="delete" @pointerdown="on_delete($event)">
+                    <button id="" class="delete" @pointerdown="on_delete($event, phrase.id)">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                         <g>
@@ -112,24 +112,36 @@ export default {
         }
     },
 
+    directives: {
+        focus: { 
+            inserted: function(el) { 
+                el.focus();
+                console.log("it should've focused...");
+                document.documentElement.querySelector('.add input').focus();
+            } 
+        }
+    },
+
     methods: {
         on_add(event) {
-            if (event.pointerType === 'mouse' && event.which !== 1) {
-                return;
-            }
+            setTimeout(() => {
+                if (event.pointerType === 'mouse' && event.which !== 1) {
+                    return;
+                }
 
-            if ( this.input.trim() === '' ) {
-                return;
-            }
+                if ( this.input.trim() === '' ) {
+                    return;
+                }
 
-            this.phrases.push({
-                id: Date.now(),
-                text: this.input,
-                count: 0,
-                state: 'static',
-            });
+                this.phrases.push({
+                    id: Date.now(),
+                    text: this.input,
+                    count: 0,
+                    state: 'static',
+                });
 
-            this.input = '';
+                this.input = '';
+            }, 100)
         },
 
         on_reset(event) {
