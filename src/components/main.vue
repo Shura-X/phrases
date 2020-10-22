@@ -14,7 +14,7 @@
 
             <li v-for="phrase in phrases" :id="phrase.id">
                 <div class="left">
-                    <p v-if="phrase.state === 'static'">{{ phrase.text }}, {{ phrase.id }}</p>
+                    <p v-if="phrase.state === 'static'">{{ phrase.text }}</p>
 
                     <input v-focus v-else type="text" v-model="phrase.text" @keydown.enter="on_edit($event, phrase)">
 
@@ -124,7 +124,7 @@ export default {
 
     methods: {
         on_add(event) {
-            setTimeout(() => {
+            //setTimeout(() => {
                 if (event.pointerType === 'mouse' && event.which !== 1) {
                     return;
                 }
@@ -141,7 +141,7 @@ export default {
                 });
 
                 this.input = '';
-            }, 100)
+            //}, 100)
         },
 
         on_reset(event) {
