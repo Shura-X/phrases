@@ -27,6 +27,7 @@ html
 
 main 
 	margin: 0 2rem
+	margin-bottom: 60px
 
 	width: clamp(0px, 95vw, 1000px)
 	/*height: 500px*/
@@ -67,6 +68,12 @@ li
 			outline: 0px
 			border-color: blueviolet
 
+/*.no-touchevents .list
+	li:hover
+		background-color: rgba(138, 43, 226, .075)
+		.left button
+			display: block	*/
+
 .list
 	@include font($font_size, $black)
 	align-self: stretch
@@ -80,9 +87,11 @@ li
 
 	ul
 		margin: 0
+		padding: 0px
+		list-style: none
 
 	li
-		padding: .5rem 0
+		padding: .5rem
 		position: relative
 
 		max-width: 100%
@@ -90,26 +99,13 @@ li
 		display: flex
 		justify-content: space-between
 
-		&:hover
-			background-color: rgba(138, 43, 226, .075)
-			.left button
-				display: block
-
-		&::before
-			content: ''
-			display: block
-			width: 0
-			height: 0
-			border: 5px solid blueviolet
-			border-radius: 50%
-
-			position: absolute
-			left: calc(0px - 5px - 1rem)
-			top: calc(50% - 5px)
 
 	.right 
 		display: flex
 		align-items: center
+
+		#plus
+			cursor: pointer
 
 	.left
 		display: flex
@@ -163,20 +159,6 @@ li
 			height: 100%
 			width: 100%
 
-#switcher
-	position: absolute
-	top: 10px
-	left: 10px
-
-	button
-		@extend %btn
-		margin: .25rem
-
-	.current
-		border: transparent
-		color: white
-		background-color: blueviolet
-
 #description
 	margin: 1rem 2rem
 	@include font(18, $black)
@@ -200,3 +182,15 @@ li
 	.add
 		input
 			min-width: 100px
+
+@media (hover: hover)
+	.list
+		li:hover
+			background-color: rgba(138, 43, 226, .075)
+			.left button
+				display: block
+
+@media (hover: none)
+	.list
+		.left button
+			display: block
