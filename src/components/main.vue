@@ -9,6 +9,8 @@
             <button id="add" @pointerdown="on_add($event)">{{vocab.add}}</button>
         </section>
 
+        <p style="position: absolute; top: 100px; left: 100px">{{ input }}</p>
+
         <section class="list">
         <ul>
 
