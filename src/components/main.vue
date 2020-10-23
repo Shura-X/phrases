@@ -152,7 +152,7 @@ export default {
             });
 
             this.input = '';
-            alert( this.input );
+            //alert( this.input );
         },
 
         on_reset(event) {
