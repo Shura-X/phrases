@@ -65,6 +65,8 @@ export default {
 			background-color: blueviolet
 			border-color: transparent
 			color: white
+		&:focus
+			-webkit-tap-highlight-color: transparent
 
 	header
 		display: flex
