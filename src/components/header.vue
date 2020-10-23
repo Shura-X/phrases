@@ -5,7 +5,7 @@
         	<button @pointerdown="$emit('switch', $event, 'eng')" :class="{ current: lang==='eng' }">en</button>
     	</div>
 
-    	<a href="/" class="github">
+    	<a href="https://github.com/Shura-X/phrases" class="github">
     		<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 		viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 			<g>
@@ -52,6 +52,7 @@ export default {
 		background-color: transparent
 		border: 1px solid $black
 		cursor: pointer
+		user-select: none
 
 		font-family: 'Arial'
 		font-size: 18px

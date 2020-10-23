@@ -6,18 +6,18 @@
         <section class="add">
             <button id="reset" @pointerdown="on_reset($event)">{{vocab.reset}}</button>
             <input type="text"
-                @input="on_input($event)" :value="input" :placeholder="vocab.placeholder">
+                @input="e => input = e.target.value" :value="input" :placeholder="vocab.placeholder">
             <button id="add" @pointerdown="on_add($event)">{{vocab.add}}</button>
         </section>
 
         <section class="list">
-        <ul>
+        <transition-group tag="ul" name="item">
 
-            <li v-for="phrase in phrases" :id="phrase.id">
+            <li v-for="phrase in phrases" :id="phrase.id" :key="phrase.id">
                 <div class="left">
                     <p v-if="phrase.state === 'static'">{{ phrase.text }}</p>
 
-                    <input v-focus v-else type="text" :value="phrase.text" @input="on_input($event)"
+                    <input v-focus v-else type="text" :value="phrase.text" @input="e => phrase.text = e.target.value"
                         @keydown.enter="on_edit($event, phrase)">
 
                     <button id="" class="delete" @pointerdown="on_delete($event, phrase.id)">
@@ -64,8 +64,8 @@
                         </g>
                         </svg>
                     </button>
-                </div>
-
+                </div
+>
                 <div class="right">
                         <p>{{ phrase.count }}</p>
                         <button @click="on_increase($event, phrase)" id="plus">
@@ -74,7 +74,7 @@
                 </div>
             </li>
                 
-        </ul>
+        </transition-group>
         </section>
 
     </main>
@@ -82,6 +82,7 @@
 
 <script>
 //import header from './components/header.vue';
+require('animate.css');
 
 const english = {
     reset: 'reset',
@@ -118,18 +119,22 @@ export default {
         focus: { 
             inserted: function(el) { 
                 //el.focus();
-                console.log("it should've focused...");
+                //console.log("it should've focused...");
                 //document.documentElement.querySelector('.add input').focus();
+
+                setTimeout(() => {
+                    el.focus()
+                });
             } 
         }
     },
 
     methods: {
-        on_input(event) {
+        on_input(event, text) {
             //this trick with on_input is made, because
             //default v-model synchronization doesn't work
             //properly on mobile devices due to mobile keyboeard
-            this.input = event.target.value;
+            text = event.target.value;
             //console.log( this.input )
         },
 
