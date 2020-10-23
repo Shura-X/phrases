@@ -128,8 +128,11 @@ export default {
 
     methods: {
         on_input(event) {
+            //this trick with on_input is made, because
+            //default v-model synchronization doesn't work
+            //properly on mobile devices due to mobile keyboeard
             this.input = event.target.value;
-            alert( this.input );
+            //console.log( this.input )
         },
 
         on_add(event) {
