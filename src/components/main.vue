@@ -18,7 +18,8 @@
                 <div class="left">
                     <p v-if="phrase.state === 'static'">{{ phrase.text }}</p>
 
-                    <input v-focus v-else type="text" v-model="phrase.text" @keydown.enter="on_edit($event, phrase)">
+                    <input v-focus v-else type="text" v-model="phrase.text"
+                        @input="e => phase.text = e.target.value" @keydown.enter="on_edit($event, phrase)">
 
                     <button id="" class="delete" @pointerdown="on_delete($event, phrase.id)">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
