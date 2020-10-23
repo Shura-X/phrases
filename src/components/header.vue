@@ -53,6 +53,7 @@ export default {
 		border: 1px solid $black
 		cursor: pointer
 		user-select: none
+		-webkit-tap-highlight-color: transparent
 
 		font-family: 'Arial'
 		font-size: 18px
