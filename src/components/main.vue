@@ -5,7 +5,7 @@
 
         <section class="add">
             <button id="reset" @pointerdown="on_reset($event)">{{vocab.reset}}</button>
-            <input type="text" v-model="input" 
+            <input type="text"
                 @input="on_input($event)" :placeholder="vocab.placeholder">
             <button id="add" @pointerdown="on_add($event)">{{vocab.add}}</button>
         </section>
