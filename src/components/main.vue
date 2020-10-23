@@ -124,7 +124,7 @@ export default {
 
                 setTimeout(() => {
                     el.focus()
-                });
+                }, 100);
             } 
         }
     },
