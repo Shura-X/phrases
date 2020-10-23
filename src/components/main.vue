@@ -17,7 +17,7 @@
                 <div class="left">
                     <p v-if="phrase.state === 'static'">{{ phrase.text }}</p>
 
-                    <input v-focus v-else type="text" v-model="phrase.text"
+                    <input v-focus v-else type="text" :value="phrase.text" @input="on_input($event)"
                         @keydown.enter="on_edit($event, phrase)">
 
                     <button id="" class="delete" @pointerdown="on_delete($event, phrase.id)">
@@ -117,9 +117,9 @@ export default {
     directives: {
         focus: { 
             inserted: function(el) { 
-                el.focus();
+                //el.focus();
                 console.log("it should've focused...");
-                document.documentElement.querySelector('.add input').focus();
+                //document.documentElement.querySelector('.add input').focus();
             } 
         }
     },
