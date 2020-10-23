@@ -136,24 +136,23 @@ export default {
         },
 
         on_add(event) {
-            //setTimeout(() => {
-                if (event.pointerType === 'mouse' && event.which !== 1) {
-                    return;
-                }
+            if (event.pointerType === 'mouse' && event.which !== 1) {
+                return;
+            }
 
-                if ( this.input.trim() === '' ) {
-                    return;
-                }
+            if ( this.input.trim() === '' ) {
+                return;
+            }
 
-                this.phrases.push({
-                    id: Date.now(),
-                    text: this.input,
-                    count: 0,
-                    state: 'static',
-                });
+            this.phrases.push({
+                id: Date.now(),
+                text: this.input,
+                count: 0,
+                state: 'static',
+            });
 
-                this.input = '';
-            //}, 100)
+            this.input = '';
+            alert( this.input );
         },
 
         on_reset(event) {
