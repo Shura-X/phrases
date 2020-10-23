@@ -5,7 +5,10 @@
 
         <section class="add">
             <button id="reset" @pointerdown="on_reset($event)">{{vocab.reset}}</button>
-            <input type="text" v-model="input" :placeholder="vocab.placeholder">
+            <input type="text" v-model="input" 
+                @input="e => {
+                    this.input = e.target.value
+                }" :placeholder="vocab.placeholder">
             <button id="add" @pointerdown="on_add($event)">{{vocab.add}}</button>
         </section>
 
@@ -19,7 +22,7 @@
                     <p v-if="phrase.state === 'static'">{{ phrase.text }}</p>
 
                     <input v-focus v-else type="text" v-model="phrase.text"
-                        @input="e => phrase.text = e.target.value" @keydown.enter="on_edit($event, phrase)">
+                        @keydown.enter="on_edit($event, phrase)">
 
                     <button id="" class="delete" @pointerdown="on_delete($event, phrase.id)">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -126,6 +129,10 @@ export default {
     },
 
     methods: {
+        /*on_input(event) {
+            this.input = event.
+        },*/
+
         on_add(event) {
             //setTimeout(() => {
                 if (event.pointerType === 'mouse' && event.which !== 1) {
