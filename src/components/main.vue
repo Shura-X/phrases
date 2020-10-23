@@ -6,9 +6,7 @@
         <section class="add">
             <button id="reset" @pointerdown="on_reset($event)">{{vocab.reset}}</button>
             <input type="text" v-model="input" 
-                @input="e => {
-                    this.input = e.target.value
-                }" :placeholder="vocab.placeholder">
+                @input="on_input($event)" :placeholder="vocab.placeholder">
             <button id="add" @pointerdown="on_add($event)">{{vocab.add}}</button>
         </section>
 
@@ -129,9 +127,10 @@ export default {
     },
 
     methods: {
-        /*on_input(event) {
-            this.input = event.
-        },*/
+        on_input(event) {
+            this.input = event.target.value;
+            alert( this.input );
+        },
 
         on_add(event) {
             //setTimeout(() => {
