@@ -4,10 +4,10 @@
         <p id="description">{{ vocab.description }}</p>
 
         <section class="add">
-            <button id="reset" @pointerdown="on_reset($event)">{{vocab.reset}}</button>
+            <button id="reset" @click="on_reset($event)">{{vocab.reset}}</button>
             <input type="text"
                 @input="e => input = e.target.value" :value="input" :placeholder="vocab.placeholder">
-            <button id="add" @pointerdown="on_add($event)">{{vocab.add}}</button>
+            <button id="add" @click="on_add($event)">{{vocab.add}}</button>
         </section>
 
         <section class="list">
@@ -20,7 +20,7 @@
                     <input v-focus v-else type="text" :value="phrase.text" @input="e => phrase.text = e.target.value"
                         @keydown.enter="on_edit($event, phrase)">
 
-                    <button id="" class="delete" @pointerdown="on_delete($event, phrase.id)">
+                    <button id="" class="delete" @click="on_delete($event, phrase.id)">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                         <g>
@@ -41,7 +41,7 @@
                         </svg>
                     </button>
 
-                    <button id="" class="edit" @pointerdown="on_edit($event, phrase)">
+                    <button id="" class="edit" @click="on_edit($event, phrase)">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 0 394.69 394.69" style="enable-background:new 0 0 394.69 394.69;" xml:space="preserve">
                         <g>

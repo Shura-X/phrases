@@ -1,8 +1,8 @@
 <template>
 	<header>
 		<div id="switcher">
-        	<button @pointerdown="$emit('switch', $event, 'rus')" :class="{ current: lang==='rus' }">ru</button>
-        	<button @pointerdown="$emit('switch', $event, 'eng')" :class="{ current: lang==='eng' }">en</button>
+        	<button @click="$emit('switch', $event, 'rus')" :class="{ current: lang==='rus' }">ru</button>
+        	<button @click="$emit('switch', $event, 'eng')" :class="{ current: lang==='eng' }">en</button>
     	</div>
 
     	<a href="https://github.com/Shura-X/phrases" class="github">
